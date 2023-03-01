@@ -15,11 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myApp.views import *
 # SQL veri tabaninda gelen resim dosyalari icin
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index,name='index'),
+    path('kesfet', Kesfet, name='Kesfet'),
+    path('myprofile', myProfil, name='myProfil'),
+    path('loguotkesfet', loguotKesfet, name='loguotKesfet'),
+    
+    
+    # <----------------------USERS---------------->
+    path('login', Login, name='Login'),
+    path('register', Register, name='Register'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

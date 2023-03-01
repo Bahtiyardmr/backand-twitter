@@ -1,6 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
 
+
+{% block body %}
+    
+
+    
     <!-----------------------------------------------------------------------------------------1. sayfa---------------------------------------------------------------------------- -->
-    <div class="container">
+    <div class="col-lg-6 col-sm-10 col-12">
         <div id="Form1">
             <button class="border my-2 mx-1 bg-light border-0">
                 <span class="material-symbols-outlined bg-light border-0">
@@ -69,7 +76,7 @@
                         <a href="#" class="text-decoration-none">Privacy Policy</a> , including <a href="#" class="text-decoration-none"></a> Cookie Use.</p>
                     
 
-                        <p class="my-3">Zaten bir hesabın var mı? <a href="#" class="text-decoration-none">Giriş yap</a>
+                        <p class="my-3">Zaten bir hesabın var mı? <a href="{% url 'Login' %}" class="text-decoration-none">Giriş yap</a>
                         </p>
 
                 </div>
@@ -320,5 +327,5 @@
         </div>
        
     </div>
-
+{% endblock body %}
    

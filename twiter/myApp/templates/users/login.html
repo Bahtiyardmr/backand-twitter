@@ -3,11 +3,8 @@
 
 
 {% block body %}
-    
-
-    
 <!----------------------------------------------------------------------------------------- 1. sayfa---------------------------------------------------------------------------- -->
-<div class="container">
+<div class="col-lg-6 col-sm-10 col-12">
     <div id="Form1" >
         <button class="border my-2 mx-1 bg-light border-0">
             <span class="material-symbols-outlined bg-light border-0">
@@ -75,7 +72,7 @@
            <button type="button" id="Next" class="my-5 w-50 rounded-5 bg-black text-light" style="height: 40px;">ileri</button>
            <a href="#" class="text-decoration-none text-black">Şifreni mi unutun?</p>
 
-           <p class="my-3">Henüz bir Hesabın yok mu? <a href="#" class="text-decoration-none">kaydol</a></p>
+           <p class="my-3">Henüz bir Hesabın yok mu? <a href="{% url 'Register' %}" class="text-decoration-none">kaydol</a></p>
 
         </div>
        </form>
