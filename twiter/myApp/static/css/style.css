@@ -1,0 +1,168 @@
+/* ---------------------------------------------------------------------------------------------(-_-) LEFT-HEADER (-_-)--------------------------------------------------------------- */
+.d-flex.align-items-center.my-2:focus{
+    font-weight: 900;
+
+}
+/* ---------------------------------------------------------------------------------------------(-_-) CENTER-MAIN (-_-)--------------------------------------------------------------- */
+.pro{
+    width: 10%;
+    height: auto;
+    display: flex;
+    justify-content: end;
+}
+.paylasim{
+    width: 85%;
+    height: auto;
+}
+
+.foryou{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.flow{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text-dark:focus{
+   border-bottom:4px solid rgb(3, 128, 230);
+   
+}
+
+/* ---------------------------------------------------------------------------------------------(-_-) RIGHT-FOTHER (-_-)--------------------------------------------------------------- */
+.btn.btn-light:hover{
+    background-color: aliceblue;
+    border: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------------(-_-)EDIT PROFIL (-_-)--------------------------------------------------------------- */
+
+
+.edit-name,.edit-bio,.edit-location,.edit-website{
+    border: 1px solid rgb(201, 201, 201);
+}
+.edit-name input{
+    border: none;
+}
+.edit-name input:focus{
+    outline: none;
+}
+.edit-bio input{
+    border: none;
+}
+.edit-bio input:focus{
+    outline: none;
+}
+.edit-location input{
+    border: none;
+}
+.edit-location input:focus{
+    outline: none;
+}
+.edit-website input{
+    border: none;
+}
+.edit-website input:focus{
+    outline: none;
+}
+
+ul .nav-item:focus{
+    border-bottom: 3px solid blue;
+}
+
+/* ---------------------------------------------------------------------------------------------(-_-)Login (-_-)--------------------------------------------------------------- */
+#Form1{
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 40px auto;
+    border-radius: 15px;
+}
+#Form,input:focus{
+    height: 60px;
+    outline-color: rgb(56, 116, 228);
+}
+#Form2{
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 40px auto;
+    border-radius: 15px;
+    display: none;
+}
+
+#Form2 input:focus{
+    height: 60px;
+    outline-color: rgb(56, 116, 228);
+}
+#Form3{
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 40px auto;
+    border-radius: 15px;
+    display: none;
+    overflow: hidden;
+}
+
+#Form3 input:focus{
+    height: 60px;
+    outline-color: rgb(56, 116, 228);
+}
+#Form4{
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 40px auto;
+    border-radius: 15px;
+    display: none;
+    overflow: hidden;
+}
+
+#Form4 input:focus{
+    height: 60px;
+    outline-color: rgb(56, 116, 228);
+}
+#Form5{
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 40px auto;
+    border-radius: 15px;
+    display: none;
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------------------------------(-_-)register (-_-)--------------------------------------------------------------- */
+.text-decoration-none:hover{
+    border-bottom:2px solid rgb(56, 116, 228) ;
+}
+.s-month:focus{
+    outline-color: rgb(56, 116, 228);
+}
+.s-month{
+    border: none;
+}
+.s-month:focus .month{
+    height: 50px;
+    color: blue;
+    outline-color: rgb(56, 116, 228);
+}
+
+#Ucnokta{
+    width: auto;
+    height: auto;
+    position: absolute;
+    border-radius: 15px;
+    display: none;
+    background-color: white;
+    top: 530px;
+    box-shadow: 10px 10px 10px rgb(187, 184, 184);
+   
+}
