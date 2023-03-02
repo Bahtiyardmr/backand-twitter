@@ -91,16 +91,20 @@
                         close
                     </span>
                 </button>
-                <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 1/5 </p>
+                <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 1/3 </p>
             </div>
             <form action="">
                 <div class="center" style="margin: auto 100px; width: 100%;">
         
                     <h2 class="my-3">Hesabını oluştur</h2>
-                    <input class="w-75 border-0 my-5" type="text" placeholder="isim">
-                    <input class="w-75  border-0 " type="number" placeholder="Telefon">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input class="w-75 border-0 my-5" type="text" name="name" placeholder="isim">
+                        <input id="email" class="w-75  border-0" type="email"  name="email" placeholder="E-posta" >
+                    
                     <div class="e-posta d-flex w-75 justify-content-end">
-                        <a href="#" class="text-decoration-none">E-posta Kullan</a>
+                        <a id="show" type="button" href="#" class="text-decoration-none">E-posta Kullan</a>
+                        <a id="show2" type="button" href="#" class="text-decoration-none" style="display: none;">Telefon Kullan</a>
                     </div>
                     <h6 class="mt-5" style="font-weight: 700;">Doğum tarihi</h6>
                     <p>Bu, herkese açık olarak gösterilmeyecek. Bu hesap bir işletme, evcil hayvan <br> veya başka bir şey için
@@ -111,7 +115,7 @@
                         <!---------------------------------------------------------------------select-month------------------------------------------------------------------ -->
                         <div class="month w-25">
                             <label for="">Ay </label>
-                            <select name="" id="" class="s-month w-75">
+                            <select name="month" id="" class="s-month w-75">
                                 <option value="ocak"></option>
                                 <option value="ocak">Ocak</option>
                                 <option value="ocak">Şubat</option>
@@ -131,7 +135,7 @@
                         <!---------------------------------------------------------------------select-day------------------------------------------------------------------ -->
                         <div class="day w-25">
                             <label for="">Gün </label>
-                            <select name="" id="" class="s-month w-75">
+                            <select name="day" id="" class="s-month w-75">
                                 <option value=""></option>
                                 <option value="ocak">1</option>
                                 <option value="ocak">2</option>
@@ -171,7 +175,7 @@
                         <!---------------------------------------------------------------------select-year------------------------------------------------------------------ -->
                         <div class="day w-25">
                             <label for="">Yıl </label>
-                            <select name="" id="" class="s-month w-75">
+                            <select name="year" id="" class="s-month w-75">
                                 <option value=""></option>
                                 <option value="ocak">2023</option>
                                 <option value="ocak">2022</option>
@@ -193,7 +197,7 @@
                     </div>
         
                     <button type="button" id="Next2" class="my-5 w-75 rounded-5 bg-black text-light"  style="height: 40px; margin-top: 150px !important;">ileri</button>
-        
+                </form>
         
                 </div>
             </form>
@@ -206,7 +210,7 @@
                         arrow_back
                     </span>
                 </button>
-                 <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 2/5 </p>
+                 <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 2/3 </p>
             </div>
             
                 <div class="center border-2 d-flex flex-column p-4 w-75" style="margin: 20px auto;">
@@ -240,91 +244,27 @@
                         arrow_back
                     </span>
                 </button>
-                 <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 3/5 </p>
+                 <p class="mt-2 mx-4" style="font-weight: 700; font-size: 20px;"> Adim 3/3 </p>
             </div>
             
                 <div class="center border-2 d-flex flex-column p-4 w-75" style="margin:  auto;">
                   
                     <h2 class="">Hesabını oluştur</h2>
-                    <div class="inputlar mt-2 ">
-                        <input class="w-100 border-0 mt-4" type="text" placeholder="isim">
-                        <input class="w-100 border-0 mt-4" type="email" placeholder="E-posta">
-                        <input class="w-100 border-0 mt-4" type="text" placeholder="Doğum tarihi">
-                    </div>
-
-                        <p class="my-5">
-                            Kaydolarak <a href="#" class="text-decoration-none">Koşullarımızı, Gizlilik Politikamızı</a>  ve <a href="#" class="text-decoration-none">Çerez Kullanımımızı </a>  
-                             kabul etmiş olursun. Twitter, e-posta adresin ve
-                            telefon numaran dahil olmak üzere iletişim bilgilerini Gizlilik Politikamızda belirtilen amaçlar doğrultusunda
-                            kullanabilir. <a href="#" class="text-decoration-none">Daha fazla bilgi al</a> 
-                        </p>
-                    
-                    <button id="Next4" class="my-5 w-100 rounded-5 bg-primary text-light" style="height: 40px; margin-top: 150px !important; border: none;">Kaydol</button>
-                       
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="inputlar mt-2 ">
+                            <input class="w-100 border-0 mt-4" type="text" name="name" placeholder="username">
+                            <input class="w-100 border-0 mt-4" type="email" name="email" placeholder="E-posta">
+                            <input class="w-100 border-0 mt-4" type="password" name="password" placeholder="Sifre">
+                            <input class="w-100 border-0 mt-4" type="password" name="password2" placeholder="Sifre tekrar">
+                        </div>
+                    <button type="submit" class="my-5 w-100 rounded-5 bg-primary text-light" style="height: 40px; margin-top: 150px !important; border: none;">Kaydol</button>
+                </form>
 
                 </div>
             
         </div>
         <!----------------------------------------------------------------------------------------- 5.sayfa---------------------------------------------------------------------------- -->
-        <div id="Form5">
-            <div class="close d-flex align-items-center " >
-                <button id="Back3" type="button" class="border my-2 mx-1 bg-light border-0">
-                    <span class="material-symbols-outlined">
-                        close
-                    </span>
-                </button>
-                 
-            </div>
-            <div class="log-r d-flex justify-content-center">
-                <!-- ---------------------------------------------logo--------------------------------------------------- -->
-                <svg class="my-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px"
-                    height="50px" viewBox="0 -4 48 48" version="1.1">
-                
-                    <title>Twitter-color</title>
-                    <desc>Created with Sketch.</desc>
-                    <defs>
-                
-                    </defs>
-                    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Color-" transform="translate(-300.000000, -164.000000)" fill="#00AAEC">
-                            <path
-                                d="M348,168.735283 C346.236309,169.538462 344.337383,170.081618 342.345483,170.324305 C344.379644,169.076201 345.940482,167.097147 346.675823,164.739617 C344.771263,165.895269 342.666667,166.736006 340.418384,167.18671 C338.626519,165.224991 336.065504,164 333.231203,164 C327.796443,164 323.387216,168.521488 323.387216,174.097508 C323.387216,174.88913 323.471738,175.657638 323.640782,176.397255 C315.456242,175.975442 308.201444,171.959552 303.341433,165.843265 C302.493397,167.339834 302.008804,169.076201 302.008804,170.925244 C302.008804,174.426869 303.747139,177.518238 306.389857,179.329722 C304.778306,179.280607 303.256911,178.821235 301.9271,178.070061 L301.9271,178.194294 C301.9271,183.08848 305.322064,187.17082 309.8299,188.095341 C309.004402,188.33225 308.133826,188.450704 307.235077,188.450704 C306.601162,188.450704 305.981335,188.390033 305.381229,188.271578 C306.634971,192.28169 310.269414,195.2026 314.580032,195.280607 C311.210424,197.99061 306.961789,199.605634 302.349709,199.605634 C301.555203,199.605634 300.769149,199.559408 300,199.466956 C304.358514,202.327194 309.53689,204 315.095615,204 C333.211481,204 343.114633,188.615385 343.114633,175.270495 C343.114633,174.831347 343.106181,174.392199 343.089276,173.961719 C345.013559,172.537378 346.684275,170.760563 348,168.735283"
-                                id="Twitter">
-                
-                            </path>
-                        </g>
-                    </g>
-                </svg>
-
-            </div>
-
-                <div class="center border-2 d-flex flex-column align-items-center p-4 w-75" style="margin:  auto;">
-                    
-                    <div class="img-icon d-flex justify-content-center ">
-                        <img src="https://client-api.arkoselabs.com/cdn/fc/assets/style-manager/assets/91368b70-dc10-447b-95ed-2bc6e01e538c.svg"
-                        class="sc-1wksc40-0 eqSjTA logo" tabindex="-1" aria-hidden="true" style="width: 90px;">
-                    </div>
-                    
-                    <h2 class="mt-4" style="font-weight: 600;">Hesabınızın kimliğini doğrulayın</h2>
-                   
-
-                        <p class="my-5">
-                        Senin gerçek bir insan olduğundan emin olmamız gerekiyor.
-                        </p>
-                    
-                    <button id="Next5" class="w-100 rounded-5 bg-black text-light" style="height: 40px;  border: none;">Kimliği Doğrula</button>
-                    <span class="my-3" style="color: gray; text-align: center;">74717476cbc5bd591.1214397105</span>
-
-                    <div class="img-audi d-flex flex-column align-items-center my-3">
-                        <img src="https://client-api.arkoselabs.com/cdn/fc/assets/style-manager/assets/e94ae91f-1774-408b-a8b3-1237915c996c.svg" >
-                        <a class="text-decoration-none text-black" href="#" style="font-weight: 700;">ses</a>
-
-                    </div>
-                       
-
-                </div>
-            
-        </div>
        
     </div>
 {% endblock body %}
