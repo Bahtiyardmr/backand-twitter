@@ -12,17 +12,17 @@
                         <h4 class="text-black">Anasayfa</h4>
                         <div class="butonlar d-flex justify-content-center">
                             <div class="foryou my-4 me-5">
-                                <a href="index.html" class="text-dark" style="text-decoration: none;">Size ozel</a>
+                                <a href="{% url 'index' %}" class="text-dark" style="text-decoration: none;">Size ozel</a>
                             </div>
                             <div class="flow my-4">
-                                <a href="takip.html" class="text-dark" style="text-decoration: none;">Takip Edilenler</a>
+                                <a href="{% url 'Folow' %}" class="text-dark" style="text-decoration: none;">Takip Edilenler</a>
                             </div>
                         </div>
                     </div>
 <!--------------------------------------------------------------------------------------(-_-) TWITLE (-_-)---------------------------------------------------------------------------->
                     <div class="twitle my-2 d-flex" style="height: auto;">
                         <div class="profil">
-                            <img src="css/img/myFoto.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
+                            <img src="{% static 'img/myFoto.jpg' %}" alt="" width="50" height="50" class="rounded-circle me-2">
                         </div>
                         <div class="p-right">
                             <div class="tweet">
@@ -126,7 +126,7 @@
 <!--------------------------------------------------------------------------------------(-_-) BRINCIPAYLASIM (-_-)---------------------------------------------------------------------------->
                             <div class="hepsi d-flex" style="height: auto; ">
                                 <div class="pro">
-                                    <img src="css/img/myFoto.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
+                                    <img src="{% static 'img/myFoto.jpg' %}" alt="" width="50" height="50" class="rounded-circle me-2">
                                 </div>
                                 <div class="paylasim">
                                     <div class="title d-flex">
@@ -136,7 +136,7 @@
                                         <p>Modric, Real Madrid ile sözleşme uzatma görüşmeleri sırasında basında sürekli yaşının konuşulmasından inciniyor. (Marca)</p>
                                     </div>
                                     <div class="img d-flex justify-content-start">
-                                        <img src="css/img/fut.jpg" alt="" style="height:500px; width: 90%; border-radius: 20px;">
+                                        <img src="{% static 'img/fut.jpg' %}" alt="" style="height:500px; width: 90%; border-radius: 20px;">
                                     </div>
   <!--------------------------------------------------------------------------------------(-_-) COMT (-_-)---------------------------------------------------------------------------->
                                     <div class="coment my-4">
@@ -190,7 +190,7 @@
 <!--------------------------------------------------------------------------------------(-_-) IKINCIPAYLASIMN (-_-)-------------------------------------------------------------->                        
                             <div class="hepsi d-flex" style="height: auto; ">
                                 <div class="pro">
-                                    <img src="css/img/myFoto.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
+                                    <img src="{% static 'img/myFoto.jpg' %}" alt="" width="50" height="50" class="rounded-circle me-2">
                                 </div>
                                 <div class="paylasim">
                                     <div class="title d-flex">
@@ -200,7 +200,7 @@
                                         <p>Modric, Real Madrid ile sözleşme uzatma görüşmeleri sırasında basında sürekli yaşının konuşulmasından inciniyor. (Marca)</p>
                                     </div>
                                     <div class="img d-flex justify-content-start">
-                                        <img src="css/img/fut.jpg" alt="" style="height:500px; width: 90%; border-radius: 20px;">
+                                        <img src="{% static 'img/fut.jpg' %}" alt="" style="height:500px; width: 90%; border-radius: 20px;">
                                     </div>
 <!--------------------------------------------------------------------------------------(-_-) COMT (-_-)---------------------------------------------------------------------------->
                                     <div class="coment my-4">

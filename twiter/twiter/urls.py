@@ -26,6 +26,7 @@ urlpatterns = [
     path('kesfet', Kesfet, name='Kesfet'),
     path('myprofile', myProfil, name='myProfil'),
     path('loguotkesfet', loguotKesfet, name='loguotKesfet'),
+    path('folow', Folow, name='Folow'),
     
     
     # <----------------------USERS---------------->

@@ -68,8 +68,11 @@
 
             </div>
             <p>veya</p>
-           <input class="w-50 border-0" type="text" placeholder="Telefon numarasi, e-posta veya kullanici adi">
-           <button type="button" id="Next" class="my-5 w-50 rounded-5 bg-black text-light" style="height: 40px;">ileri</button>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input class="w-50 border-0" type="text" name="username" placeholder="Telefon numarasi, e-posta veya kullanici adi">
+                <button type="button" id="Next" class="my-5 w-50 rounded-5 bg-black text-light "  style="height: 40px;">ileri</button>
+            </form>
            <a href="#" class="text-decoration-none text-black">Şifreni mi unutun?</p>
 
            <p class="my-3">Henüz bir Hesabın yok mu? <a href="{% url 'Register' %}" class="text-decoration-none">kaydol</a></p>
@@ -105,11 +108,14 @@
                 </g>
             </svg>
             <h2 class="my-3">Şifreni gir</h2>
-            <input class="w-50 border-0 my-5" type="text" placeholder="bahtiya_">
-            <input class="w-50 border-0 " type="password" placeholder="Şifre">
-            <a href="#" class="text-decoration-none text-info my-1">Şifreni mi unutun?</p>
-           
-           <button id="Giris" class="my-5 w-100 rounded-5 bg-black text-light" style="height: 40px; width: 350px !important;  margin-top: 200px !important;">Giriş yap</button>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input class="w-50 border-0 my-5" name="username" type="text" placeholder="username">
+                <input class="w-50 border-0 " type="password" name="password" placeholder="Şifre">
+                <a href="#" class="text-decoration-none text-info my-1">Şifreni mi unutun?</p>
+               <button type="submit" id="Giris" class="my-5 w-100 rounded-5 bg-black text-light" style="height: 40px; width: 350px !important;  margin-top: 200px !important;">Giriş yap</button>
+            </form>
+                
            <p class="text-black">Henüz bir Hesabın yok mu? <a href="#" class="text-decoration-none">kaydol</a></p>
 
         </div>

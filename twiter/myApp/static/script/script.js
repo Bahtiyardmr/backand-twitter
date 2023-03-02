@@ -1,15 +1,13 @@
- 
-        var Form1 = document.getElementById('Form1')
-        var Form2 = document.getElementById('Form2')
+    var Form1 = document.getElementById('Form1')
+    var Form2 = document.getElementById('Form2')
 
-        var Next = document.getElementById('Next')
-        var Giris = document.getElementById('Giris')
+    var Next = document.getElementById('Next')
+    var Giris = document.getElementById('Giris')
 
-        Next.onclick = function () {
-            Form1.style.display = "none";
-            Form2.style.display = 'block'
-        }
- 
+    Next.onclick = function(){
+        Form1.style.display ="none";
+        Form2.style.display ='block'
+    }
   
         var Form1 = document.getElementById('Form1')
         var Form2 = document.getElementById('Form2')
