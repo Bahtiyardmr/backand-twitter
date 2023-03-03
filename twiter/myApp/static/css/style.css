@@ -79,10 +79,14 @@ ul .nav-item:focus{
 /* ---------------------------------------------------------------------------------------------(-_-)Login (-_-)--------------------------------------------------------------- */
 #Form1{
     width: 700px;
-    height: 700px;
-    background-color: rgb(176, 178, 180);
+    height: auto;
+    background-color: rgb(246, 251, 255);
     margin: 40px auto;
     border-radius: 15px;
+}
+#Form,input{
+    height: 60px;
+    outline-color: rgb(56, 116, 228);
 }
 #Form,input:focus{
     height: 60px;
@@ -90,7 +94,7 @@ ul .nav-item:focus{
 }
 #Form2{
     width: 700px;
-    height: 700px;
+    height: auto;
     background-color: aliceblue;
     margin: 40px auto;
     border-radius: 15px;
@@ -129,15 +133,7 @@ ul .nav-item:focus{
     height: 60px;
     outline-color: rgb(56, 116, 228);
 }
-#Form5{
-    width: 700px;
-    height: 700px;
-    background-color: aliceblue;
-    margin: 40px auto;
-    border-radius: 15px;
-    display: none;
-    overflow: hidden;
-}
+
 
 /* ---------------------------------------------------------------------------------------------(-_-)register (-_-)--------------------------------------------------------------- */
 .text-decoration-none:hover{
@@ -167,6 +163,18 @@ ul .nav-item:focus{
    
 }
 
+#Form5{
+    margin:20px auto !important; 
+    width: 700px;
+    height: 700px;
+    background-color: rgb(219, 225, 230);
+    border-radius: 15px;
+    box-shadow: -5px 10px 10px 8px black;
+    display: block;
+}
 
+#registers:hover{
+    text-decoration: none !important;
+}
 
 /* fdfffffffffffffffffffffffffffffffffffffffffffffff */

@@ -12,6 +12,7 @@
         var Form1 = document.getElementById('Form1')
         var Form2 = document.getElementById('Form2')
         var Form3 = document.getElementById('Form3')
+        var Form5 = document.getElementById('Form5')
         var Mobil = document.getElementById('mobil')
         var Email = document.getElementById('email')
 
@@ -23,6 +24,7 @@
         var Back3 = document.getElementById('Back3')
         var Show = document.getElementById('show')
         var Show2 = document.getElementById('show2')
+        var Login = document.getElementById('login')
 
         Show.onclick=function(){
             Mobil.style.display='none';
@@ -54,7 +56,6 @@
             Form1.style.display = "none";
             Form2.style.display = "none";
             Form3.style.display = "none";
-            Form4.style.display = "block";
         }
         Back.onclick = function () {
             Form1.style.display = "none";
@@ -66,4 +67,7 @@
             Form2.style.display = "none";
             Form3.style.display = "block";
             Form4.style.display = "none";
+        } 
+        Login.onclick = function () {
+            Form5.style.backgroundColor = "red";
         } 

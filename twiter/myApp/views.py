@@ -71,6 +71,11 @@ def Login(request):
         if user is not None:
             login(request,user)
             return redirect('index')
+        
+        else:
+            hataMessage = 'kullanici adi veya Sifreniz yanlis!'
+            return render(request, 'users/login.html', {'hataMessage': hataMessage})
+        
     context={
         'pagatitle':pagatitle,
     }
@@ -79,7 +84,7 @@ def Login(request):
 
     # <-------------------------------- REGISTER --------------------------------------------------->
 def Register(request):
-    pagatitle='Kesfet/Twitter'
+    pagatitle='Register'
 
     
     context={
@@ -100,3 +105,8 @@ def Register(request):
      
  
     return render(request,'users/register.html',context)
+
+ # <-------------------------------- logout --------------------------------------------------->
+def logoutUser(request):
+    logout(request)
+    return redirect('loguotKesfet')
