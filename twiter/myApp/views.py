@@ -7,9 +7,23 @@ from .models import *
 # <-------------------------------- INDEX --------------------------------------------------->
 def index(request):
     pagatitle='Anasayfa'
- 
+    twets=Tweet.objects.all().order_by('-id')
+    if request.method == 'POST':
+        if request.FILES:
+            text = request.POST['text']
+            image = request.FILES['image']
+
+            tweet = Tweet(user=request.user, text=text, image=image)
+            tweet.save()
+        else:
+            text = request.POST['text']
+
+            tweet = Tweet(user=request.user, text=text)
+            tweet.save()
+        
     context={
         'pagatitle':pagatitle,
+        'twets': twets,
     }
     return render(request,'index.html',context)
 
@@ -35,9 +49,10 @@ def Kesfet(request):
     # <-------------------------------- MYPROFILE --------------------------------------------------->
 def myProfil(request):
     pagatitle='Profilim'
-
+    twets = Tweet.objects.filter().order_by('-id')
     context={
         'pagatitle':pagatitle,
+        'twets': twets,
     }
     return render(request,'profils/myprofile.html',context)
             

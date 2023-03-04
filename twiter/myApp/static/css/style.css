@@ -176,5 +176,7 @@ ul .nav-item:focus{
 #registers:hover{
     text-decoration: none !important;
 }
-
+#file{
+    display: none;
+}
 /* fdfffffffffffffffffffffffffffffffffffffffffffffff */
