@@ -7,7 +7,7 @@ from .models import *
 # <-------------------------------- INDEX --------------------------------------------------->
 def index(request):
     pagatitle='Anasayfa'
-
+ 
     context={
         'pagatitle':pagatitle,
     }
