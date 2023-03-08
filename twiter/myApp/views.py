@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRe
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import *
+from django.urls import reverse
 
 # <-------------------------------- INDEX --------------------------------------------------->
 def index(request):
@@ -125,3 +126,34 @@ def Register(request):
 def logoutUser(request):
     logout(request)
     return redirect('loguotKesfet')
+
+
+def Detail(request, id):
+    post = get_object_or_404(Tweet, id=id)
+
+    context = {
+        'post': post,
+    }
+
+    return render(request, 'details.html', context)
+
+ # <-------------------------------- likes --------------------------------------------------->
+def begeni(request,id):
+    user=request.user
+    post=Tweet.objects.get(id=id)
+    curent_likes = post.tweet_likes
+    liked=Begeni.objects.filter(user=user,post=post).count()
+    if not liked:
+        liked=Begeni.objects.create(user=user, post=post)
+        curent_likes=curent_likes + 1
+        
+    else:
+        liked=Begeni.objects.filter(user=user, post=post).delete()
+        curent_likes=curent_likes - 1
+    
+    post.tweet_likes=curent_likes
+    post.save()
+    return HttpResponseRedirect(reverse('Detail', args=[id]))
+
+
+
