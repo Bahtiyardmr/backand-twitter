@@ -7,6 +7,7 @@ from django.urls import reverse
 
 # <-------------------------------- INDEX --------------------------------------------------->
 def index(request):
+    user=request.user
     pagatitle='Anasayfa'
     twets=Tweet.objects.all().order_by('-id')
     if request.method == 'POST':
@@ -25,6 +26,7 @@ def index(request):
     context={
         'pagatitle':pagatitle,
         'twets': twets,
+        'user': user,
     }
     return render(request,'index.html',context)
 
@@ -138,22 +140,17 @@ def Detail(request, id):
     return render(request, 'details.html', context)
 
  # <-------------------------------- likes --------------------------------------------------->
-def begeni(request,id):
+def begeni(request):
     user=request.user
-    post=Tweet.objects.get(id=id)
-    curent_likes = post.tweet_likes
-    liked=Begeni.objects.filter(user=user,post=post).count()
-    if not liked:
-        liked=Begeni.objects.create(user=user, post=post)
-        curent_likes=curent_likes + 1
-        
-    else:
-        liked=Begeni.objects.filter(user=user, post=post).delete()
-        curent_likes=curent_likes - 1
-    
-    post.tweet_likes=curent_likes
-    post.save()
-    return HttpResponseRedirect(reverse('Detail', args=[id]))
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post_obj = Tweet.objects.get(id=post_id)
+
+        if user in post_obj.liked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
+    return redirect('index')
 
 
 

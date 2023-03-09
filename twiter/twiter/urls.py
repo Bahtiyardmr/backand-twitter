@@ -33,7 +33,6 @@ urlpatterns = [
     path('login', Login, name='Login'),
     path('register', Register, name='Register'),
     path('logoutuser', logoutUser, name='logoutUser'),
-    path('like/<id>/', begeni, name='Begeni'),
-    path('detay/<id>/', Detail, name='Detail'),
+    path('like/', begeni, name='Begeni'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
