@@ -31,7 +31,7 @@ def index(request):
     return render(request,'index.html',context)
 
 # <-------------------------------- FOLLOW --------------------------------------------------->
-def Folow(request):
+def Follow(request):
     pagatitle='Takip edilenler'
 
     context={
@@ -62,9 +62,11 @@ def myProfil(request):
     # <-------------------------------- USERPROFILE --------------------------------------------------->
 def userProfile(request):
     pagatitle='@userprofile'
+    user=request.user
 
     context={
         'pagatitle':pagatitle,
+        'user': user,
     }
     return render(request,'profils/userprofil.html',context)
             
@@ -130,14 +132,6 @@ def logoutUser(request):
     return redirect('loguotKesfet')
 
 
-def Detail(request, id):
-    post = get_object_or_404(Tweet, id=id)
-
-    context = {
-        'post': post,
-    }
-
-    return render(request, 'details.html', context)
 
  # <-------------------------------- likes --------------------------------------------------->
 def begeni(request):

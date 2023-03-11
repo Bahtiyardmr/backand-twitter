@@ -25,8 +25,9 @@ urlpatterns = [
     path('', index,name='index'),
     path('kesfet', Kesfet, name='Kesfet'),
     path('myprofile', myProfil, name='myProfil'),
+    path('userprofil', userProfile, name='userProfile'),
     path('loguotkesfet', loguotKesfet, name='loguotKesfet'),
-    path('folow', Folow, name='Folow'),
+    path('follow', Follow, name='Follow'),
     
     
     # <----------------------USERS---------------->

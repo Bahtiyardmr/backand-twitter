@@ -1,7 +1,7 @@
 
 {% load static %}
             <!--------------------------------------------------------------------------------------(-_-) LEFT-HEADER (-_-)----------------------------------------------------------->
-            <div class="col-lg-3 col-2 d-none d-sm-block  ">
+            <div class="col-lg-3 col-2 d-none d-sm-block">
                 <header class="sticky-top">
                     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light-subtle" style="height: 100vh;">
                         <a href="/"
@@ -145,23 +145,26 @@
                                     </li>
 
                                     <div class="btn  my-4 d-flex justify-content-center align-content-center"
-                                    style="border-radius: 20px; width: 65%; height: 45px; background-color: #1d9bf0; color: 
+                                        style="border-radius: 20px; width: 65%; height: 45px; background-color: #1d9bf0; color: 
                                          white;">Tweet</div>
-                                         <hr>
-                                    <div class="dropdown">
-                                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="{% static 'img/myFoto.jpg' %}" alt="" width="32" height="32" class="rounded-circle me-2">
-                                        <strong>{{ request.user }}</strong>
-                                    </a>
-                                    <span class="mx-5 mt-0">@{{ request.user }}</span>
-                                    <ul class="dropdown-menu text-small shadow">
-                                        <li><a class="dropdown-item" href="#">Var olan bir hesap ekle</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'logoutUser' %}">@{{ request.user }} Çıkış Yap</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    </ul>
+                                                <hr>
+                                           
+                                         <div class="dropdown" style="margin-top: 350px;">
+                                            <a href="#" class="d-flex align-items-center link-dark text-decoration-none"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img src="{% static 'img/myFoto.jpg' %}" alt="" width="32" height="32" class="rounded-circle me-2">
+                                                <strong>{{ request.user }}</strong>
+                                            </a>
+                                            <span class="mx-5 mt-0">@{{ request.user }}</span>
+                                            <ul class="dropdown-menu text-small shadow">
+                                                <li><a class="dropdown-item" href="#">Var olan bir hesap ekle</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'logoutUser' %}">@{{ request.user }} Çıkış Yap</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                            </ul>
+                                     </div>
+    
                                 </div>
                                 {% else %}
                                      {% comment %} Kesfet {% endcomment %}
@@ -190,11 +193,12 @@
                                         </a>
                                     </li>
                             {% endif %}
-    
-                        </ul>
+
+                            
+                        
                        
                         
-                    </div>
+                    
                 </header>
             </div>
        
