@@ -60,15 +60,37 @@ def myProfil(request):
     return render(request,'profils/myprofile.html',context)
             
     # <-------------------------------- USERPROFILE --------------------------------------------------->
-def userProfile(request):
-    pagatitle='@userprofile'
-    user=request.user
 
-    context={
-        'pagatitle':pagatitle,
+
+def Userprofile(request, pk):
+    user = User.objects.get(id=pk)
+    shared = Tweet.objects.filter(user=user)
+
+    if request.method == 'POST':
+
+        if 'follow' in request.POST:
+            if request.user.is_authenticated:
+                myaccount = Userinfo.objects.get(user=request.user)
+                print(myaccount)
+                if Userinfo.objects.filter(user=request.user, follow__in=[user]).exists():
+                    myaccount.follow.remove(user)
+                    user.userinfo.follower.remove(request.user)
+                    myaccount.save()
+                else:
+                    myaccount.follow.add(user)
+                    user.userinfo.follower.add(request.user)
+
+                    myaccount.save()
+        return redirect('Userprofile', pk=user.id)
+
+    
+
+    context = {
         'user': user,
+        'shared': shared,
     }
-    return render(request,'profils/userprofil.html',context)
+
+    return render(request, 'profils/userprofil.html', context)
             
     # <-------------------------------- LOGUOTKESFET --------------------------------------------------->
 def loguotKesfet(request):

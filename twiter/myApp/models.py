@@ -13,7 +13,7 @@ class Userinfo(models.Model):
     follow = models.ManyToManyField(User, related_name="takip")
     follower = models.ManyToManyField(User, related_name='takipci')
 
-    def str(self):
+    def __str__(self):
         return self.user.username
 
 class Tweet(models.Model):
@@ -40,5 +40,4 @@ class Begeni(models.Model):
     user=models.ForeignKey(User, verbose_name=("User"), on_delete=models.CASCADE)
     twiit=models.ForeignKey(Tweet, verbose_name=("Tweet"), on_delete=models.CASCADE)
     value=models.CharField(choices=LIKE_CHOICES,default='Like', max_length=10)
-    
     

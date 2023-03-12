@@ -185,6 +185,8 @@
                             <!-------------------------------------------------------------- tweets-paylasim ------------------------------------------------------------------------>
                             
                             {% for twit in twets %}
+                            
+                            {% if twit.user == request.user %}
                                 <div class="tab-pane fade show active " id="tweets" role="tabpanel" aria-labelledby="Ttweets" >
                                     <div class="myretweeted mx-4 my-2">
                                         <svg witdh="16px" height="16px" viewBox="0 0 24 24" aria-hidden="true"
@@ -280,6 +282,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            
+                            {% endif %}
+                                
                             {% endfor %}
                                 <!-------------------------------------------------------------- replies-paylasim ------------------------------------------------------------------------>
                             <div class="tab-pane fade" id="replies" role="tabpanel" aria-labelledby="Treplies" >

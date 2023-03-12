@@ -13,7 +13,7 @@
                             </span>
                         </div>
                         <div class="mytweet mx-4">
-                            <h5>UEFA Avrupa ligi</h5>
+                            <h5>{{ user.userinfo.name }}</h5>
                             <span style="color: gray; font-size: 14px;"> 33.1k tweetler</span>
                         </div>
                     </div>
@@ -60,9 +60,20 @@
                                         </path>
                                     </g>
                                 </svg>
-                                 
-                             <button style="height: 30px; border-radius: 20px; border: none; background-color: rgb(0, 0, 0); color: aliceblue; width:     130px;">Takip                       
-                           Et</button>    
+                             <form action="" method="POST">
+                                {% csrf_token %}
+                                
+                                {% if request.user in user.userinfo.follower.all %}
+                                <button type="submit" name="follow" style="height: 30px; border-radius: 20px; border: none; background-color: rgb(0, 0, 0); color: aliceblue; width:     130px;">Takip Ediliyor</button>    
+                                
+                                    
+                                {% else %}
+                                <button type="submit" name="follow" style="height: 30px; border-radius: 20px; border: none; background-color: rgb(0, 0, 0); color: aliceblue; width:     130px;">Takip et</button>    
+                                
+                                {% endif %}
+                                
+
+                             </form>    
                                  
 
                             </div>
@@ -72,8 +83,8 @@
                         </div>
                     </div>
                     <div class="titlemyprofile">
-                        <h4 class="my-3">UEFA Avrupa Ligi <br><span
-                                style="color: gray; font-size: 13px;">@Avrupa Ligi</span> </h4>
+                        <h4 class="my-3">{{ user.userinfo.name }}<br><span
+                                style="color: gray; font-size: 13px;">@{{ user.username }}</span> </h4>
 
                     </div>
                     <div class="data">
@@ -87,8 +98,8 @@
                         </svg> <span style="color: gray;">Joined February 2023</span>
                     </div>
                     <div class="following my-4">
-                        <a href="#" style="text-decoration: none; color: black; font-weight: 700;">1<span
-                                style="color: gray;"> Following</span> 0 <span style="color: gray;"> Followers</span>
+                        <a href="#" style="text-decoration: none; color: black; font-weight: 700;">{{ user.userinfo.follow.all.count }}<span
+                                style="color: gray;"> Following</span> {{ user.userinfo.follower.all.count }} <span style="color: gray;"> Followers</span>
                         </a>
                     </div>
 

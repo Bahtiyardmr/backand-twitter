@@ -132,13 +132,17 @@
 <!--------------------------------------------------------------------------------------(-_-) BRINCIPAYLASIM (-_-)---------------------------------------------------------------------------->
                             
                             {% for twit in twets %}
+                            
                             <div class="hepsi d-flex" style="height: auto; ">
                                 <div class="pro">
                                     <img src="{% static 'img/myFoto.jpg' %}" alt="" width="50" height="50" class="rounded-circle me-2">
                                 </div>
                                 <div class="paylasim">
                                     <div class="title d-flex">
-                                        <h6 class="my-1" style="font-weight: 800;">FutbolArena</h6> <span class="my-1 mx-2" style="font-weight: 700; color: gray;"> @futbolarena.20h</span>
+                                        <a href="/userprofile/{{ twit.user.id }}" style="text-decoration: none; color: black;">
+                                            <h6 class="my-1" style="font-weight: 800;">{{ twit.user.userinfo.name }}</h6> 
+                                            <span class="my-1 mx-2" style="font-weight: 700; color: gray;"> @futbolarena.20h</span>
+                                        </a>
                                     </div>
                                     <div class="text">
                                         <p>{{ twit.text }}</p>

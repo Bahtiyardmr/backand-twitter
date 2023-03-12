@@ -23,11 +23,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index,name='index'),
-    path('kesfet', Kesfet, name='Kesfet'),
-    path('myprofile', myProfil, name='myProfil'),
-    path('userprofil', userProfile, name='userProfile'),
-    path('loguotkesfet', loguotKesfet, name='loguotKesfet'),
-    path('follow', Follow, name='Follow'),
+    path('kesfet/', Kesfet, name='Kesfet'),
+    path('myprofile/', myProfil, name='myProfil'),
+    path('userprofile/<str:pk>', Userprofile, name='Userprofile'),
+    path('loguotkesfet/', loguotKesfet, name='loguotKesfet'),
+    path('follow/', Follow, name='Follow'),
     
     
     # <----------------------USERS---------------->
