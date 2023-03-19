@@ -8,7 +8,7 @@ from django.urls import reverse
 # <-------------------------------- INDEX --------------------------------------------------->
 def index(request):
     user=request.user
-    pagatitle='Anasayfa'
+    pagatitle='index'
     twets=Tweet.objects.all().order_by('-id')
     if request.method == 'POST':
         if request.FILES:
@@ -17,12 +17,14 @@ def index(request):
 
             tweet = Tweet(user=request.user, text=text, image=image)
             tweet.save()
+            return redirect('index')
         else:
             text = request.POST['text']
 
             tweet = Tweet(user=request.user, text=text)
             tweet.save()
-        
+            return redirect('index')
+  
     context={
         'pagatitle':pagatitle,
         'twets': twets,
@@ -32,30 +34,76 @@ def index(request):
 
 # <-------------------------------- FOLLOW --------------------------------------------------->
 def Follow(request):
-    pagatitle='Takip edilenler'
+    pagatitle='Follow'
+    user = request.user
+    twets = Tweet.objects.all().order_by('-id')
+    if request.method == 'POST':
+        if request.FILES:
+            text = request.POST['text']
+            image = request.FILES['image']
 
-    context={
-        'pagatitle':pagatitle,
+            tweet = Tweet(user=request.user, text=text, image=image)
+            tweet.save()
+            return redirect('index')
+        else:
+            text = request.POST['text']
+
+            tweet = Tweet(user=request.user, text=text)
+            tweet.save()
+            return redirect('index')
+
+    context = {
+        'pagatitle': pagatitle,
+        'twets': twets,
+        'user': user,
     }
     return render(request,'takip.html',context)
 
     # <-------------------------------- KESFET --------------------------------------------------->
 def Kesfet(request):
     pagatitle='Kesfet'
+    twets = Tweet.objects.all().order_by('-id')
+
+    random_user=User.objects.all().order_by('?') [:5]
 
     context={
         'pagatitle':pagatitle,
+        'twets': twets,
+        'random_user': random_user,
     }
     return render(request,'kesfet.html',context)
 
             
     # <-------------------------------- MYPROFILE --------------------------------------------------->
 def myProfil(request):
-    pagatitle='Profilim'
+    pagatitle='myProfil'
+    myTweets=Tweet.objects.filter(user=request.user)
+    myLikes=Tweet.objects.filter(liked__in = [request.user])
     twets = Tweet.objects.filter().order_by('-id')
+    random_user = User.objects.all().order_by('?')[:5]
+    
+     
+    if request.method == 'POST':
+        user_id=request.POST['user_id']
+        r_user=User.objects.get(id=user_id)
+        if 'r_buton' in request.POST:
+            myAcount=Userinfo.objects.get(user=request.user)
+            if Userinfo.objects.filter(user=request.user, follow__in=[r_user]).exists():
+               myAcount.follow.remove(r_user)
+               r_user.userinfo.follower.remove(request.user)
+               myAcount.save()
+            else:
+                myAcount.follow.add(r_user)
+                r_user.userinfo.follower.add(request.user)
+                myAcount.save()
+    
+   
     context={
         'pagatitle':pagatitle,
         'twets': twets,
+        'myTweets': myTweets,
+        'myLikes': myLikes,
+        'random_user': random_user,
     }
     return render(request,'profils/myprofile.html',context)
             
@@ -63,8 +111,12 @@ def myProfil(request):
 
 
 def Userprofile(request, pk):
+    pagatitle = 'Userprofil'
     user = User.objects.get(id=pk)
     shared = Tweet.objects.filter(user=user)
+    random_user = User.objects.all().order_by('?')[:5]
+    myTweets = Tweet.objects.filter(user=request.user)
+    myLikes = Tweet.objects.filter(liked__in=[user])
 
     if request.method == 'POST':
 
@@ -81,6 +133,7 @@ def Userprofile(request, pk):
                     user.userinfo.follower.add(request.user)
 
                     myaccount.save()
+    
         return redirect('Userprofile', pk=user.id)
 
     
@@ -88,13 +141,17 @@ def Userprofile(request, pk):
     context = {
         'user': user,
         'shared': shared,
+        'myLikes': myLikes,
+        'myTweets': myTweets,
+        'pagatitle': pagatitle,
+        'random_user': random_user,
     }
 
     return render(request, 'profils/userprofil.html', context)
             
     # <-------------------------------- LOGUOTKESFET --------------------------------------------------->
 def loguotKesfet(request):
-    pagatitle='Kesfet/Twitter'
+    pagatitle = 'loguotKesfet'
 
     context={
         'pagatitle':pagatitle,
@@ -104,7 +161,7 @@ def loguotKesfet(request):
 
     # <-------------------------------- LOGIN --------------------------------------------------->
 def Login(request):
-    pagatitle='Kesfet/Twitter'
+    pagatitle='Login'
 
     if request.method =='POST':
         username=request.POST['username']
@@ -140,7 +197,16 @@ def Register(request):
         email=request.POST['email']
         password=request.POST['password']
         password2 = request.POST['password2']
+        
         if password == password2:
+             if User.objects.filter(username=username).exists():
+                 hatamesej='Üzgünüm Bu Kullanıcı Adı Zaten Kullanılmış'
+                 return render(request, 'users/register.html', {'hatamesej': hatamesej})
+             
+        elif User.objects.filter(email=email).exists():
+            hatamesej = 'Üzgünüm Bu Gmail  Zaten Kullanılmış'
+            return render(request, 'users/register.html', {'hatamesej': hatamesej})
+        else:
          user = User.objects.create_user(first_name=name,username=username, email=email,password=password)
          user.save()
          return render(request, 'users/login.html')
@@ -166,7 +232,6 @@ def begeni(request):
             post_obj.liked.remove(user)
         else:
             post_obj.liked.add(user)
-    return redirect('index')
 
-
+        return HttpResponseRedirect('{}'.format(pagetitle))
 

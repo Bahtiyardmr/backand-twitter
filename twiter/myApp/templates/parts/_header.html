@@ -152,7 +152,7 @@
                                          <div class="dropdown" style="margin-top: 350px;">
                                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                                <img src="{% static 'img/myFoto.jpg' %}" alt="" width="32" height="32" class="rounded-circle me-2">
+                                                <img src="{{ request.user.userinfo.image.url }}" alt="" width="32" height="32" class="rounded-circle me-2">
                                                 <strong>{{ request.user }}</strong>
                                             </a>
                                             <span class="mx-5 mt-0">@{{ request.user }}</span>

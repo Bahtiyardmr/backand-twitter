@@ -27,7 +27,12 @@
            
             
             <div class="col-12 ">
-                
+                  {% if hatamesej %}
+                            <div class="alert text-white  alert-dismissible fade show bg-info" role="alert">
+                                <strong>{{ hatamesej }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                     {% endif %}
                 <div id="Form5" class="col-lg-6 col-sm-10 col-12">
                         <form class="mx-5 my-5" action="" method="POST">
                             {% csrf_token %}
